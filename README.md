@@ -1,4 +1,4 @@
-# how-a-c-program-works
+# How a C program works
 
 `program.c` is a Hello World program in C.
 
