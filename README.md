@@ -2,17 +2,41 @@
 
 `program.c` is a Hello World program in C.
 
-To compile a c program, you would use the GNU C Compiler to produce an executable
-by running `gcc program.c -o program`. Then, you can run the program from the command
-line via `./program`.
+## Compiling source
 
-Let's take the scenic route.
+The source code of a C program cannot be run by itself. It must be compiled to machine code to be run by the computer's processor.
 
-Run `gcc -E program.c > program.i`. This will run C preprocessor against the source.
-The preprocessor injects the source of `stdio.h` into the file. Since we're using `printf()` inside `main()` function, `printf()` is included in `stdio.h`.
+The compilation process looks like this:
 
-Run `gcc -S program.i`. This is translates preprocessed C source code into
-assembly code in `program.s`.
+source > preprocessed source > assembly code > executable binary file
+
+### Compile source to a binary executable (i.e. machine code)
+
+A C program can be compiled from source to executable binary file in one command.
+
+```bash
+gcc program.c -o program
+```
+
+Then run the program from the command line via `./program`.
+
+### Compile source to preprocessed source
+
+The preprocessor injects all included files into one file. We're using `printf()` in the program, and `printf()` is included in `stdio.h` (the standard input/output library). So the preprocessor will inject the source of `stdio.h`.
+
+Run C preprocessor against the source.
+
+```bash
+gcc -E program.c > program.i
+```
+
+### Compile source to assembly code
+
+This is translates preprocessed C source code into assembly code in `program.s`.
+
+```bash
+gcc -E program.c > program.i && gcc -S program.i
+```
 
 ### Open questions
 
