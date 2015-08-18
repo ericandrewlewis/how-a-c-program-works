@@ -38,6 +38,8 @@ This is translates preprocessed C source code into assembly code in `program.s`.
 gcc -E program.c > program.i && gcc -S program.i
 ```
 
+Since we're using `gcc`, this will output x86 assembly in GAS syntax.
+
 ### Open questions
 
 What does executable code look like? How does writing echo "hello"; on the command
